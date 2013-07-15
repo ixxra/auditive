@@ -23,7 +23,7 @@ using Gst;
 
 // these below attempt to correct Vala shortcomings
 delegate void foreach_delegate (Gst.TagList list, string tag);
-extern void taglist_foreach_job (Gst.TagList list, foreach_delegate func, void* user_data);
+//extern void taglist_foreach_job (Gst.TagList list, foreach_delegate func, void* user_data); //gstreamer-1.0: This is no longer needed to compile
 extern bool check_tag_exists (void* list, char* tag);
 
 public const int64 nsec = 1000000000;
@@ -194,13 +194,11 @@ class auditive
     world->screen_current = index_screen (world->screen_current)->last_screen;
     draw();
   }
-  
+
   bool rememberable_screen (int key_num, int hot_key, world_wide.screen_type screen_type)
   {
     bool hit = false;
-    //int f1 = world->con->key_f1;
     int f1 = console.key_f1;
-    //int k1 = world->con->key_k1;
     int k1 = console.key_k1;
     if (hot_key > 12)
     {
@@ -244,7 +242,6 @@ class auditive
         loop.quit();
         break;
 
-      //case world->con->key_backspace:
       case console.key_backspace:
         stop();
         world->playlist_position = -1;
@@ -426,7 +423,7 @@ class auditive
         message.parse_tag (out tag_list);
 
         // compiler error work-arounds:
-        tag_list.foreach (tag_reciever); // c-compiler warnings, or
+        tag_list.foreach (tag_reciever); //Gstreamer-1.0 NO LONGER THE CASE: c-compiler warnings, or
         // tag_list.foreach ((TagForeachFunc) tag_reciever); // run time errors on play, or
         //taglist_foreach_job (tag_list, tag_reciever, this); // clean
         break;

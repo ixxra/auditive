@@ -268,7 +268,6 @@ struct _ParamSpecauditive {
 
 static gpointer auditive_parent_class = NULL;
 
-void taglist_foreach_job (GstTagList* list, foreach_delegate func, void* func_target, void* user_data);
 gboolean check_tag_exists (void* list, gchar* tag);
 #define nsec ((gint64) 1000000000)
 gchar* time_text (gint64 num);

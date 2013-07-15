@@ -116,12 +116,11 @@ class external : screen
     return key_handled.resync;
     // caller should resync, cls, draw now
   }
-  
+
   public override void key_press (int key_num)
   {
     switch (key_num)
     {
-      //case world->con->key_left:
       case console.key_backspace:
         world->files_array.nth_data (world->screen_files)->draw();
         break;

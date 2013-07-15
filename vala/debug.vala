@@ -36,7 +36,7 @@ class dbg : screen
   {
     return (int) lines.length(); 
   }
-  
+
   public override string get_line (uint num)
   {
     // could do a num < size check here

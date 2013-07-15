@@ -84,14 +84,14 @@ class playlist : screen
   // returns full path
   {
     string filename;
-    
+
     filename = entry.nth_data (num);
     if (filename.substring (0, 1) == "/")
       return filename;
     else
       return remove_slashes (get_base_from_path (m3u_path) + "/" + filename);
   }
-  
+
   // play a song for a playlist takes an integer; for file lists it is a name
   public void play_a_song (int num)
   {
@@ -128,7 +128,6 @@ class playlist : screen
         world->player->draw();
         break;
       
-      //case world->con->key_left:
       case console.key_left:
         world->files_array.nth_data (world->screen_files)->draw();
         break;

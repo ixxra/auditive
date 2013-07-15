@@ -111,7 +111,6 @@ abstract class screen
     
     switch (key_num)
     {
-      //case world->con->key_up:
       case console.key_up:
         if (row_pos > 0)
           row_pos--;
@@ -121,7 +120,6 @@ abstract class screen
         draw();
         break;
 
-      //case world->con->key_down:
       case console.key_down:
         if (index + 1 >= size)
           break;
@@ -132,20 +130,17 @@ abstract class screen
         draw();
         break;
 
-      //case world->con->key_home:
       case console.key_home:
         screen_pos = 0;
         row_pos = 0;
         draw();
         break;
 
-      //case world->con->key_end:
       case console.key_end:
         zoom_to_last_line();
         draw();
         break;
 
-      //case world->con->key_ppage:
       case console.key_ppage:
         screen_pos -= rows;
         if (screen_pos < 0)
@@ -156,7 +151,6 @@ abstract class screen
         draw();
         break;
 
-      //case world->con->key_npage:
       case console.key_npage:
         screen_pos += rows;
         if (screen_pos + rows > size)
@@ -183,13 +177,13 @@ abstract class screen
     if (row_pos >= size)
       row_pos = size - 1; // so row_pos can be -1
   }
-  
+
   public void zoom_to (int index)
   {
     world->con->calculate_dimensions();
     int rows = window_rows();
     int last_pos;
-    
+
     screen_pos = index - (rows / 2);
     if (screen_pos < 0)
     {

@@ -40,7 +40,7 @@ file_type determine_node (string path)
 string remove_slashes (string path)
 {
   string ret = path;
-  
+
   while (true)
   {
     string old = ret;
@@ -48,10 +48,10 @@ string remove_slashes (string path)
     if (ret == old)
       break;
   }
-  
+
   if (ret == "" || ret == "/")
     return "/";
-  
+
   if (ret.substring (-1) == "/")
     return ret.substring (0, ret.length - 1);
   
@@ -249,7 +249,7 @@ class files : screen
     else
       return path;
   }
-  
+
   public override string get_line (uint num)
   {
     string short_name = entry.nth_data (num).name; // could do a num < size check here
@@ -413,15 +413,13 @@ class files : screen
           }
         }
         break;
-        
-      //case world->con->key_left:
+
       case console.key_left:
         if (files_position <= 0)
           break;
         world->files_array.nth_data (files_position - 1)->draw();
         break;
-        
-      //case world->con->key_right:
+
       case console.key_right:
         if (files_position < files_screen_count - 1)
           world->files_array.nth_data (files_position + 1)->draw();
@@ -435,7 +433,6 @@ class files : screen
         draw();
         break;
 
-      //case world->con->key_shift_tab:
       case console.key_shift_tab:
         if (name == "")
           break;

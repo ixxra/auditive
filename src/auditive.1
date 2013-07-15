@@ -1,0 +1,42 @@
+.\"                                      Hey, EMACS: -*- nroff -*-
+.\" First parameter, NAME, should be all caps
+.\" Second parameter, SECTION, should be 1-8, maybe w/ subsection
+.\" other parameters are allowed: see man(7), man(1)
+.TH AUDITIVE 1 "March 28, 2010"
+.\" Please adjust this date whenever revising the manpage.
+.\"
+.\" Some roff macros, for reference:
+.\" .nh        disable hyphenation
+.\" .hy        enable hyphenation
+.\" .ad l      left justify
+.\" .ad b      justify to both left and right margins
+.\" .nf        disable filling
+.\" .fi        enable filling
+.\" .br        insert line break
+.\" .sp <n>    insert n+1 empty lines
+.\" for manpage-specific macros, see man(7)
+.SH NAME
+auditive \- console gstreamer file player
+.SH SYNOPSIS
+.B auditive
+.RI [ file ]
+.SH DESCRIPTION
+.B auditive
+is an interactive ncurses media player for the console.
+It plays files gstreamer is capable
+of as standalone files or in a .m3u playlist.
+Includes a file browser.
+.SH OPERANDS
+.IR file ,
+may be a file, directory or text .m3u playlist file. With
+no arguments the current directory is displayed.
+.SH USAGE
+Press F1 for run time help and key functions.
+.SH FILES
+.IR ~/.auditive
+contains user settings. See the example provided in the
+auditive package.
+.SH AVAILABILITY
+Package homepage at http://www.rillion.net/auditive/
+.SH AUTHOR
+Written by Graeme Sheppard: graeme at rillion.net

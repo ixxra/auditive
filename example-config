@@ -1,0 +1,13 @@
+# .auditive config file
+# keep to the below format because the interpretation is unforgiving
+# the 104 happens to be "h" key, so some control keys are possible
+# spaces in the command section must delimit arguments
+# ? is replaced with the target file name, current directory is set
+
+# auto song advance
+advance=y
+
+ext="x",Xine Media Player,xine ?
+ext="a",Audacious,audacious ?
+ext=104,Root dir,open /
+ext="s",Play song,open /tmp/song.wav

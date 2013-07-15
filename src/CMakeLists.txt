@@ -6,7 +6,7 @@ find_package(PkgConfig)
 pkg_check_modules(GLIB REQUIRED "glib-2.0 >= 2.26.0")
 pkg_check_modules(GOBJECT REQUIRED gobject-2.0)
 pkg_check_modules(GIO REQUIRED gio-2.0)
-pkg_check_modules(GSTREAMER REQUIRED gstreamer-0.10)
+pkg_check_modules(GSTREAMER REQUIRED gstreamer-1.0)
 
 INCLUDE(FindCurses)
 IF(NOT CURSES_HAVE_CURSES_H)

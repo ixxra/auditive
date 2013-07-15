@@ -128,7 +128,8 @@ class playlist : screen
         world->player->draw();
         break;
       
-      case world->con->key_left:
+      //case world->con->key_left:
+      case console.key_left:
         world->files_array.nth_data (world->screen_files)->draw();
         break;
       

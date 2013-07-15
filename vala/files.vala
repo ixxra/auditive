@@ -414,13 +414,15 @@ class files : screen
         }
         break;
         
-      case world->con->key_left:
+      //case world->con->key_left:
+      case console.key_left:
         if (files_position <= 0)
           break;
         world->files_array.nth_data (files_position - 1)->draw();
         break;
         
-      case world->con->key_right:
+      //case world->con->key_right:
+      case console.key_right:
         if (files_position < files_screen_count - 1)
           world->files_array.nth_data (files_position + 1)->draw();
         break;
@@ -433,7 +435,8 @@ class files : screen
         draw();
         break;
 
-      case world->con->key_shift_tab:
+      //case world->con->key_shift_tab:
+      case console.key_shift_tab:
         if (name == "")
           break;
         rescan();

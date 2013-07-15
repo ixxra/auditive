@@ -12,7 +12,7 @@ vala_precompile(VALA_C
 	${VALA_SRC}
 PACKAGES
 	gio-2.0
-	gstreamer-0.10
+	gstreamer-1.0
 	curses
 )
 

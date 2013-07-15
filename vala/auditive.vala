@@ -72,7 +72,7 @@ class auditive
     element_make();
     play.uri = "file://" + source;
     bus = play.get_bus();
-    bus.add_watch (bus_callback);
+    bus.add_watch (GLib.Priority.DEFAULT, bus_callback);
     playing();
     world->debug->add ("play " + song_short_file_name);
     world->debug->add ("from " + get_base_from_path (source));
@@ -107,7 +107,7 @@ class auditive
   {
     int64 position;
     var fmt = Gst.Format.TIME;
-    play.query_position (ref fmt, out position);
+    play.query_position (fmt, out position);
     return position;
   }
 
@@ -115,7 +115,7 @@ class auditive
   {
     int64 duration;
     var fmt = Gst.Format.TIME;
-    play.query_duration (ref fmt, out duration);
+    play.query_duration (fmt, out duration);
     return duration;
   }
 
@@ -198,8 +198,10 @@ class auditive
   bool rememberable_screen (int key_num, int hot_key, world_wide.screen_type screen_type)
   {
     bool hit = false;
-    int f1 = world->con->key_f1;
-    int k1 = world->con->key_k1;
+    //int f1 = world->con->key_f1;
+    int f1 = console.key_f1;
+    //int k1 = world->con->key_k1;
+    int k1 = console.key_k1;
     if (hot_key > 12)
     {
       if (key_num == hot_key) hit = true;
@@ -242,7 +244,8 @@ class auditive
         loop.quit();
         break;
 
-      case world->con->key_backspace:
+      //case world->con->key_backspace:
+      case console.key_backspace:
         stop();
         world->playlist_position = -1;
         draw();
@@ -367,9 +370,10 @@ class auditive
 
   public void tag_reciever (Gst.TagList list, string tag)
   {
+
     string field, data;
     // valac workarounds:
-    // if (list.get_string (tag, out data)) // run-time warnings, or
+    //if (list.get_string (tag, out data)) // run-time warnings, or
     if (check_tag_exists ((void*) list, (char*) tag)) // clean
     {
       list.get_string (tag, out data);
@@ -377,7 +381,7 @@ class auditive
       if (field == "title") song_title = data;
       if (field == "artist") song_artist = data;
       if (field == "album") song_album = data;
-      
+
       if (song_title != "")
       {
         if (song_artist != "")
@@ -422,9 +426,9 @@ class auditive
         message.parse_tag (out tag_list);
 
         // compiler error work-arounds:
-        // tag_list.foreach (tag_reciever); // c-compiler warnings, or
+        tag_list.foreach (tag_reciever); // c-compiler warnings, or
         // tag_list.foreach ((TagForeachFunc) tag_reciever); // run time errors on play, or
-        taglist_foreach_job (tag_list, tag_reciever, this); // clean
+        //taglist_foreach_job (tag_list, tag_reciever, this); // clean
         break;
     }
     return true;

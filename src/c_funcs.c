@@ -13,9 +13,14 @@ gboolean check_tag_exists (const void* list, const gchar* tag)
 {
   const GValue *value;
 
-  if (!gst_is_tag_list (list))
+  if (!GST_IS_TAG_LIST (list))
     return FALSE;
-  value = gst_structure_get_value ((const GstStructure*) list, tag);
+  
+  value = gst_tag_list_get_value_index ((const GstTagList*) list, tag, 0);
+
+  if (value == NULL)
+    return FALSE;
+
   return G_VALUE_HOLDS_STRING (value);
 }
 

@@ -410,7 +410,7 @@ class auditive
 
       case MessageType.ERROR:
       case MessageType.WARNING:
-      case MessageType.ELEMENT:
+//      case MessageType.ELEMENT:
         world->debug->add ("Stop: %x".printf (message.type));
         stop();
         world->con->cls(); // cheap, dirty hack

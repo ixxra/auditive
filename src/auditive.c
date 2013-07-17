@@ -1488,7 +1488,6 @@ static gboolean auditive_bus_callback (auditive* self, GstBus* bus, GstMessage* 
 		}
 		case GST_MESSAGE_ERROR:
 		case GST_MESSAGE_WARNING:
-		case GST_MESSAGE_ELEMENT:
 		{
 			world_wide* _tmp4_;
 			dbg* _tmp5_;
